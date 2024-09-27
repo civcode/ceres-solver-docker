@@ -83,8 +83,8 @@ RUN addgroup --gid ${GID} ${USERNAME} \
 # Switch to the non-root user
 USER ${USERNAME}
 
-RUN mkdir -p /home/${USERNAME}/workspace \
-    && cd /home/${USERNAME}/workspace \
+RUN mkdir -p /home/${USERNAME} \
+    && cd /home/${USERNAME} \
     && git clone --depth 1 --branch 2.2.0 https://github.com/ceres-solver/ceres-solver.git 
 
 # Append custom bashrc to the default bashrc
