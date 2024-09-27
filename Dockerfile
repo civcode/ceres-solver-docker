@@ -12,18 +12,11 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     cmake-curses-gui \
-    # can-utils \
     curl \
     git \
     gpg-agent \
     htop \
-    # iproute2 \
-    # locales \
-    # ncurses-dev \
-    # mesa-utils \
-    # rsync \
     sudo \
-    # software-properties-common \
     tmux \
     unzip \
     vim \
@@ -52,8 +45,6 @@ RUN mkdir -p /var/dependencies \
     && apt-get update && apt-get install -y \
     intel-oneapi-mkl
 
-
-
 # Build and install OpenBLAS 
 # RUN mkdir -p /var/dependencies \
 #     && cd /var/dependencies \
@@ -73,25 +64,6 @@ RUN mkdir -p /var/dependencies \
 #     && make -j8 \
 #     && make test -j8 \
 #     && make install
-
-# Install OMPL (Open Motion Planning Library)
-# RUN mkdir -p /var/ompl \
-#     && cd /var/ompl \
-#     && wget https://ompl.kavrakilab.org/install-ompl-ubuntu.sh \
-#     && chmod u+x install-ompl-ubuntu.sh \
-#     && ./install-ompl-ubuntu.sh \
-#     && rm -rf /var/ompl
-
-# Install ROS2 Jazzy
-# RUN locale-gen en_US en_US.UTF-8 \
-#     && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 
-    
-# RUN add-apt-repository universe \
-#     && curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg \
-#     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null \
-#     && apt-get update && apt-get install -y \ 
-#     ros-dev-tools \
-#     ros-jazzy-desktop
 
 # Create a non-root user with sudo privileges
 # Remove any user or group that conflicts with the desired UID/GID
