@@ -1,0 +1,23 @@
+#########################
+### CIV CONFIGURATION ###
+#########################
+alias l='ls -1'
+alias ll='ls -lah'
+alias 'cd..'='cd ..'
+alias tmux='tmux -2'
+
+# make bash autocomplete write every suggestion in a separate line
+bind 'set completion-display-width 0'
+
+# use vim as editor (git and other apps)
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+sss() {
+    echo "sourcing install/local_setup.bash"
+    source install/local_setup.bash
+}
+
+export MKLROOT=/opt/intel/oneapi/mkl/latest
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
