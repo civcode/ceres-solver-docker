@@ -18,6 +18,6 @@ sss() {
     source install/local_setup.bash
 }
 
-export MKLROOT=/opt/intel/oneapi/mkl/latest
+export OPENBLAS_NUM_THREADS=1
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH

@@ -30,20 +30,10 @@ RUN apt-get update && apt-get install -y \
     libgflags-dev \ 
     libgoogle-glog-dev \
     libmetis-dev \
-    # libopenblas-dev \
+    libopenblas-dev \
     libsuitesparse-dev \
     # libtbb-dev \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Intel MKL
-RUN mkdir -p /var/dependencies \
-    && cd /var/dependencies \
-    && wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
-    | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null \
-    && echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] \
-    https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list \
-    && apt-get update && apt-get install -y \
-    intel-oneapi-mkl
 
 # Build and install OpenBLAS 
 # RUN mkdir -p /var/dependencies \
@@ -83,8 +73,8 @@ RUN addgroup --gid ${GID} ${USERNAME} \
 # Switch to the non-root user
 USER ${USERNAME}
 
-RUN mkdir -p /home/${USERNAME}/workspace \
-    && cd /home/${USERNAME}/workspace \
+RUN mkdir -p /home/${USERNAME} \
+    && cd /home/${USERNAME} \
     && git clone --depth 1 --branch 2.2.0 https://github.com/ceres-solver/ceres-solver.git 
 
 # Append custom bashrc to the default bashrc
