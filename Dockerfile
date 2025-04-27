@@ -43,7 +43,8 @@ RUN mkdir -p /var/dependencies \
     && echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] \
     https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list \
     && apt-get update && apt-get install -y \
-    intel-oneapi-mkl
+    intel-oneapi-mkl \
+    intel-oneapi-mkl-devel
 
 # Build and install OpenBLAS 
 # RUN mkdir -p /var/dependencies \
